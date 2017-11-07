@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th ="www.thymeleaf.org">
+
 <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css" />
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Your Day Name</title>
 </head>
-<body>
-<form action ="#" th:action ="@{/processform}" method="post">
-    Date: <input type="text" name="date"/>
+
+<body class="page1">
+<div class="container">
+
+    <h1 class="name"> Your Day Name</h1>
+<form class="name" action ="#" th:action ="@{/processform}" method="post">
+    Enter a date (dd/MM/yyyy): <input type="text" name="date"/>
+
+   Gender :
+    <select name="gender" >
+        <option>m</option>
+        <option>f</option>
+        <option>b</option>
+    </select>
     <input type="submit" value="Submit"/>
 
 
 </form>
+</div>
+
 </body>
 </html>

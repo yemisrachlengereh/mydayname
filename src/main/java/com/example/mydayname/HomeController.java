@@ -20,8 +20,9 @@ public  class HomeController{
 
     }
     @RequestMapping("/processform")
-    public  String loadFormPage(@RequestParam("date")String date, Model model){
+    public  String loadFormPage(@RequestParam("date")String date, @RequestParam("gender") String gender, Model model){
         model.addAttribute("dateval",date);
+        model.addAttribute("genderval", gender);
         Scanner keyboard = new Scanner(System.in);
       //Date from the user
         LocalDate userDate= null;
@@ -39,8 +40,8 @@ public  class HomeController{
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("EEEE");
         //Format day of week using datetimeformatter dayweek
         String dayofweek=userDate.format(dayweek);
-        String myfemaledayname="";
-        String mymaledayname="";
+        String myfemaledayname="null";
+        String mymaledayname="null";
         if (dayofweek.equalsIgnoreCase("monday"))
         {
             myfemaledayname="Adjoa";
@@ -91,10 +92,18 @@ public  class HomeController{
             mymaledayname="Kwesi";
 
         }
+
         model.addAttribute("myfemaledaynameval",myfemaledayname);
         model.addAttribute("mymaledaynameval", mymaledayname);
-
-
+        if(gender.equalsIgnoreCase("f")){
+            model.addAttribute("mynameval", myfemaledayname);
+        }
+        if(gender.equalsIgnoreCase("m")){
+            model.addAttribute("mynameval", mymaledayname);
+        }
+        if(gender.equalsIgnoreCase("b")){
+            model.addAttribute("mynameval", "Female:  "+ myfemaledayname +   "    "  +   "      Male:  "  +mymaledayname);
+        }
         return "name";
     }
 
