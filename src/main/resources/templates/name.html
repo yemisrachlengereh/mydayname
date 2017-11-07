@@ -19,9 +19,10 @@
 <!--<p class="col-md-6" style="text-align: center" th:inline="text">Female:  [[${myfemaledaynameval}]] </p>
 <p class="col-md-6" style="text-align: center" th:inline="text">Male: [[${mymaledaynameval}]] </p> -->
 <p class="display">Your name is:</p>
-    <div class="col-md-12">  <div class="col-md-6">  <p class="display"  th:inline="text">  [[${mynameval}]]. </p></div></div>
-    <!--<th:if = "${myfemaledaynameval}== null"><p class="display"  th:inline="text">  [[${mymaledaynameval}]]. </p></th:if>
-    <th:if = "${mymaledaynameval}== null"><p class="display"  th:inline="text">  [[${myfemaledaynameval}]]. </p></th:if>-->
+    <div th:if="${myfemaledaynameval}!=null and ${mymaledaynameval}!=null" class="col-md-12">  <div class="col-md-6">  <p class="display"  th:inline="text">  [[${myfemaledaynameval}]]. </p></div> <div class="col-md-6">  <p class="display"  th:inline="text">  [[${mymaledaynameval}]]. </p></div>  </div>
+
+    <div th:if= "${myfemaledaynameval}== null"><p class="display"  th:inline="text">  [[${mymaledaynameval}]]. </p></div>
+    <div th:if= "${mymaledaynameval}== null"><p class="display"  th:inline="text">  [[${myfemaledaynameval}]]. </p></div>
 
 
 </body>
